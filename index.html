@@ -1,16 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <title>Shopping list example</title>
+    <style>
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>My shopping list</h1>
+
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button id="btn">Add item</button>
+    </div>
+
+    <ul>
+
+    </ul>
+
+    <script>
+        const list = document.querySelector("ul");
+        const input = document.querySelector("input");
+        const button = document.querySelector("button");
+
     
+        button.addEventListener("click", () => {
+            const currentValue = input.value;
+            input.value = "";
+        
+
+        const anotherList = document.createElement("li");
+        const span = document.createElement("span");
+        const anotherButton = document.createElement("button");
+
+        anotherList.appendChild(span);
+        span.textContent = currentValue;
+        anotherList.appendChild(anotherButton);
+        anotherButton.textContent = "Delete";
+        list.appendChild(anotherList);
+
+        anotherButton.addEventListener("click", () => {
+          list.removeChild(anotherList);
+        })
+
+     
+
+
+        input.focus();
+
+       
+      })    
 
 
 
-    <script src="script.js"></script>
-</body>
+
+    </script>
+  </body>
 </html>
